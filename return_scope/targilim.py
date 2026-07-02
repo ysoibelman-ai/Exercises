@@ -160,3 +160,132 @@ def message (value):
 price = 100
 amount = 50
 print (message(lower_15(total_value(price, amount))))
+
+# question 11
+def fn_chr (fname):
+    return fname [:3]
+def ln_chr (lname):
+    return lname [:3]
+def username (fname, lname):
+    return fname + "_" + lname
+def lower (username):
+    return username.lower()
+fname = "yaakov"
+lname = "soibelman"
+print (lower(username(fn_chr(fname),ln_chr(lname))))
+
+# question 12
+def fuel_needed (distance, fpk):
+    return distance*fpk
+def cost (total_fuel, price):
+    return total_fuel* price
+def ppp (total_cost, passenger):
+    return total_cost / passenger
+
+print (ppp(cost(fuel_needed())))
+
+# question 13
+scores = [10,10,20,30,60,]
+def sum_score (score_list):
+    return sum (score_list)
+def average (sum_scores, scores):
+    return sum_scores / scores
+def message (average):
+    if average >= 60:
+        return "pass"
+    return "fail"
+print (message (average (sum_score(scores), len(scores))))
+
+# question 14
+amount  = 10
+name = "cups"
+price = 100
+def summery (name, amount):
+    return f"{amount} {name}"
+def final_sentence (sentence, price):
+    return f" {sentence} and the total price is {price*amount}"
+def order_ready (new_sentence):
+    return new_sentence + "- order ready"
+print (order_ready(final_sentence(summery(name,amount), price)))
+
+# question 15
+def post_deposit (balance, deposit):
+    return balance+deposit
+def post_withdrawel (new_balance, withdraw):
+    return new_balance - withdraw
+def message (final_balance):
+    if final_balance > 0:
+        return "OK"
+    return "Warning"
+balance = 10000
+deposit = 234
+withd = 5678
+print (message(post_withdrawel(post_deposit(balance,deposit),withd)))
+
+
+#question 16
+tax_rate = 0.34
+def subtotal (price, amount):
+    return price*amount
+def add_tax (subtotal):
+    return subtotal * (1+tax_rate)
+def receipt (final_price):
+    return f" your final price after tax is {final_price}"
+
+print (receipt(add_tax(subtotal)))
+
+#question 17
+bonus = 100
+def score (wins):
+    return wins*10
+def add_bonus (base_score):
+    return base_score+bonus
+def level (score):
+    if score >= 50:
+        return "advanced"
+    return "trainig"
+
+print (f" your socre is {add_bonus(score())} so you are {level(add_bonus(score))}")
+
+# question 18
+def agent_name (name):
+    mission_num = 12345
+    def message (name):
+        return name[:2] + str(mission_num)
+    return (message(name))
+def print_out (code):
+    return f"mission code {code}"
+
+code_result = agent_name("Yaakov")
+final_message = print_out(code_result)
+print(final_message)
+
+
+
+# question 19
+
+counter = 100
+def local_counter (number):
+    counter = number
+    counter += 10
+    counter *= 2
+    return counter
+def diff_counters (loc_counter):
+    return abs (loc_counter-counter)
+
+print (diff_counters(local_counter))
+
+    
+
+# question 20
+item_list = ["apple", "tomato"]
+item = "plum"
+def add_item (item):
+    global item_list
+    item_list.append(item)
+    return len(item_list)
+def message (length):
+    return f" there are {length} items in the list"
+def upper_message (message):
+    return message.upper()
+print (upper_message(message(add_item(item))))
